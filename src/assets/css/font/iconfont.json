@@ -1,0 +1,23 @@
+{
+  "id": "2206319",
+  "name": "hospital",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18240446",
+      "name": "右箭头",
+      "font_class": "iconfontjiantou5-copy",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "584251",
+      "name": "右箭头",
+      "font_class": "iconfontjiantou5",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    }
+  ]
+}
