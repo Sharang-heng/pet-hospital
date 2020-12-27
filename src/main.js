@@ -9,6 +9,7 @@ import 'swiper/swiper-bundle.css'
 import './assets/css/font/iconfont.css'
 import './element/element.js'
 import 'element-ui/lib/theme-chalk/index.css';
+import './assets/css/global.css'
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 
