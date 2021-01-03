@@ -14,6 +14,7 @@ import petFuneral from '../views/petFuneral'
 import petTransport from '../views/petTransport'
 import petCare from '../views/petCare'
 import orderDoctor from '../views/orderDoctor'
+import cloneOrder from '../views/cloneOrder'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,10 @@ const routes = [
   {
     path:'/orderDoctor',
     component: orderDoctor
+  },
+  {
+    path:'/cloneOrder',
+    component: cloneOrder
   },
   {
     path:'/knowledge',

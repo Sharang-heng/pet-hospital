@@ -33,7 +33,6 @@
           ></el-option>
         </el-select>
           <el-input v-model="name" placeholder="请输入尊姓大名" class="form_input"></el-input>
-        
           <el-input
             v-model="number"
             placeholder="请输入联系方式"

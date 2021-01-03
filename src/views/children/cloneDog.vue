@@ -77,7 +77,7 @@ export default {
   },
   methods:{
     order(){
-      
+      this.$router.push('/cloneOrder');
     }
   }
 };
