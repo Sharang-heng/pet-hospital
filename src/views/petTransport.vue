@@ -14,7 +14,9 @@
           </li>
         </ul>
         <div class="nav_content">
-          <div v-show="showDetail==0"></div>
+          <div v-show="showDetail==0">
+              
+          </div>
         </div>
       </div>
     </div>

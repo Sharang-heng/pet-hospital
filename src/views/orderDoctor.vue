@@ -32,7 +32,7 @@ export default {
     return {
       doctorName: "",
       startTime: "",
-      timeArr:['2019-03-04', '2019-12-31']
+      timeArr:['2019-12-04', '2019-12-31']
     };
   }
 };

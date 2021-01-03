@@ -28,7 +28,7 @@
             <div>
               <h4 class="listTitle">{{item.title}}</h4>
               <p class="listContent">{{item.content}}</p>
-              <span v-if="item.title=='预约服务'" class="order">预约</span>
+              <span v-if="item.title=='预约服务'" class="order" @click="order">预约</span>
             </div>
           </li>
         </ul>
@@ -74,6 +74,11 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    order(){
+      
+    }
   }
 };
 </script>
