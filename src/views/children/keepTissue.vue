@@ -76,8 +76,9 @@ export default {
     };
   },
   methods:{
-    order(){
-      
+  order(){
+      sessionStorage.setItem("ServiceName", "宠物组织保存")
+      this.$router.push('/cloneOrder');
     }
   }
 };

@@ -5,16 +5,15 @@
       <video src="../assets/video/homepage.mp4" loop muted autoplay></video>
     </div>
     <div class>
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="main">
-        <el-select v-model="doctorName" placeholder="请选择" class="form_input">
+      <el-form  label-width="100px" class="main">
+        <el-select v-model="ServiceName" placeholder="请选择" class="form_input">
           <el-option
-            v-for="item in doctorOptions"
+            v-for="item in ServiceOptions"
             :key="item.value"
             :label="item.label"
             :value="item.value"
           ></el-option>
         </el-select>
-        <!-- {{doctorName}} -->
         <el-date-picker
           v-model="timeValue"
           type="date"
@@ -32,13 +31,9 @@
             :value="item.value"
           ></el-option>
         </el-select>
-          <el-input v-model="name" placeholder="请输入尊姓大名" class="form_input"></el-input>
-          <el-input
-            v-model="number"
-            placeholder="请输入联系方式"
-            class="form_input"
-            prop="number"
-          ></el-input>
+        <!-- <el-input v-model="number" placeholder="请输入" class="form_input" prop="number"></el-input> -->
+        <el-input v-model="name" placeholder="请输入您的尊姓大名" class="form_input"></el-input>
+        <el-input v-model="number" placeholder="请输入您的联系方式" class="form_input" prop="number"></el-input>
         <el-button type="primary" @click="submitOrder">提交预约</el-button>
       </el-form>
     </div>
@@ -52,7 +47,7 @@ export default {
     shortcut: shortcut
   },
   created() {
-    this.doctorName = sessionStorage.getItem("doctorName");
+    this.ServiceName = sessionStorage.getItem("ServiceName");
   },
   mounted() {},
   methods: {
@@ -70,16 +65,18 @@ export default {
       //   JSON.stringify(this.timeValue)
       // );
       // this.canOrderTime=res.data
+      console.log(this.ServiceName)
     }
   },
   data() {
     return {
       value: "",
       // 提交表单预约的医生
-      doctorName: "",
+      ServiceName: "",
       // 提交表单预约的时间
       orderTime: "",
       timeValue: "",
+      petType:'',
       pickerOptions: {
         // 限制预约时间
         disabledDate(time) {
@@ -87,39 +84,19 @@ export default {
         }
       },
       // 下拉框选择医生
-      doctorOptions: [
+      ServiceOptions: [
         {
-          value: "刘朗",
-          label: "刘朗"
+          value: "宠物克隆",
+          label: "宠物克隆"
         },
-        {
-          value: "潘庆山",
-          label: "潘庆山"
+         {
+          value: "细胞保存",
+          label: "细胞保存"
         },
-        {
-          value: "张志红",
-          label: "张志红"
+          {
+          value: "宠物组织保存",
+          label: "宠物组织保存"
         },
-        {
-          value: "李晋飞",
-          label: "李晋飞"
-        },
-        {
-          value: "陈宏武",
-          label: "陈宏武"
-        },
-        {
-          value: "李贞玉",
-          label: "李贞玉"
-        },
-        {
-          value: "邱志钊",
-          label: "邱志钊"
-        },
-        {
-          value: "邓力新",
-          label: "邓力新"
-        }
       ],
       // 下拉框获取可以预约的时间
       timeOptions: [
@@ -145,7 +122,7 @@ export default {
         }
       ],
       name: "",
-      number: "",
+      number: ""
     };
   }
 };

@@ -77,6 +77,7 @@ export default {
   },
   methods:{
     order(){
+      sessionStorage.setItem("ServiceName", "宠物克隆")
       this.$router.push('/cloneOrder');
     }
   }

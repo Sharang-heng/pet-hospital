@@ -76,8 +76,9 @@ export default {
     };
   },
   methods:{
-    order(){
-      
+   order(){
+      sessionStorage.setItem("ServiceName", "宠物细胞保存")
+      this.$router.push('/cloneOrder');
     }
   }
 };

@@ -5,7 +5,7 @@
       <video src="../assets/video/homepage.mp4" loop muted autoplay></video>
     </div>
     <div class>
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="main">
+      <el-form label-width="100px" class="main">
         <el-select v-model="doctorName" placeholder="请选择" class="form_input">
           <el-option
             v-for="item in doctorOptions"
@@ -32,11 +32,10 @@
             :value="item.value"
           ></el-option>
         </el-select>
-          <el-input v-model="name" placeholder="请输入尊姓大名" class="form_input"></el-input>
-        
+          <el-input v-model="name" placeholder="请您的输入尊姓大名" class="form_input"></el-input>
           <el-input
             v-model="number"
-            placeholder="请输入联系方式"
+            placeholder="请输入您的联系方式"
             class="form_input"
             prop="number"
           ></el-input>
@@ -48,6 +47,7 @@
 
 <script>
 import shortcut from "../components/shortcut";
+import { log } from 'util';
 export default {
   components: {
     shortcut: shortcut
@@ -71,6 +71,7 @@ export default {
       //   JSON.stringify(this.timeValue)
       // );
       // this.canOrderTime=res.data
+      console.log(this.doctorName)
     }
   },
   data() {
