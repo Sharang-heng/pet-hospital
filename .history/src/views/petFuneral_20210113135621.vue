@@ -33,24 +33,18 @@
     <div class="orderForm">
       <div class="detail_msg">
         <li>
-          <input v-model="name" placeholder="您的姓名" class="input_text" />
+          <input v-model="name" placeholder="您的姓名" class="input_text">
         </li>
         <li>
-          <input v-model="mail" placeholder="电子邮箱" class="input_text" />
+          <input v-model="mail" placeholder="电子邮箱" class="input_text">
         </li>
         <li>
-          <input v-model="phone" placeholder="联系方式" class="input_text" />
+          <input v-model="phone" placeholder="联系方式" class="input_text">
         </li>
       </div>
-      <div class="area_container">
-        <input
-          type="textarea"
-          :rows="2"
-          placeholder="留言"
-          v-model="textarea"
-          class="input_area"
-        />
-      </div>
+      <li>
+        <input type="textarea" :rows="2" placeholder="留言" v-model="textarea" change="input_area">
+      </li>
     </div>
   </div>
 </template>
@@ -59,16 +53,16 @@
 import shortcut from "../components/shortcut";
 export default {
   components: {
-    shortcut: shortcut,
+    shortcut: shortcut
   },
   data() {
     return {
       name: "",
       mail: "",
       phone: "",
-      textarea: "",
+      textarea: ""
     };
-  },
+  }
 };
 </script>
 
@@ -116,35 +110,32 @@ export default {
 .container {
   width: 100%;
   .orderForm {
+  width: 100%;
+  .detail_msg {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-around;
     width: 100%;
-    .detail_msg {
-      padding: 0 5%;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      .input_text {
-        width: 300px;
-        border: none;
-        border-bottom: 1px solid #ababab;
-        font-size: 16px;
-        color: #ababab;
-        padding: 0 0 5px 0;
-        outline: none;
-      }
-    }
-    .area_container {
-      padding: 0 5%;
-      .input_area {
-        // margin: 0 20px;
-        width: 80%;
-        border: none;
-        border-bottom: 1px solid #ababab;
-        font-size: 16px;
-        color: #ababab;
-        padding: 0 0 5px 0;
-        outline: none;
-      }
+    .input_text {
+      width: 300px;
+      border: none;
+      border-bottom: 1px solid #ABABAB;
+      font-size: 16px;
+      color: #ABABAB;
+      padding: 0 0 5px 0;
+      outline:none; 
     }
   }
+  .input_area {
+    width: 100%;
+    border: none;
+      border-bottom: 1px solid #ABABAB;
+      font-size: 16px;
+      color: #ABABAB;
+      padding: 0 0 5px 0;
+      outline:none; 
+  }
 }
+}
+
 </style>

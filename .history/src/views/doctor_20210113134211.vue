@@ -221,7 +221,7 @@ export default {
 .click_doctor {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   img {
     width: 100px;
     height: 100px;

@@ -42,7 +42,7 @@
           <input v-model="phone" placeholder="联系方式" class="input_text" />
         </li>
       </div>
-      <div class="area_container">
+      <div>
         <input
           type="textarea"
           :rows="2"
@@ -118,7 +118,7 @@ export default {
   .orderForm {
     width: 100%;
     .detail_msg {
-      padding: 0 5%;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       width: 100%;
@@ -132,18 +132,15 @@ export default {
         outline: none;
       }
     }
-    .area_container {
-      padding: 0 5%;
-      .input_area {
-        // margin: 0 20px;
-        width: 80%;
-        border: none;
-        border-bottom: 1px solid #ababab;
-        font-size: 16px;
-        color: #ababab;
-        padding: 0 0 5px 0;
-        outline: none;
-      }
+    .input_area {
+      margin: 0 20px;
+      width: 80%;
+      border: none;
+      border-bottom: 1px solid #ababab;
+      font-size: 16px;
+      color: #ababab;
+      padding: 0 0 5px 0;
+      outline: none;
     }
   }
 }
