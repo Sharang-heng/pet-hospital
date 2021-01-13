@@ -4,7 +4,7 @@
     <div class="videos">
       <img src="../assets/img/dog4.jpg" />
     </div>
-    <div>
+    <div class>
       <el-form label-width="100px" class="main">
         <div>
           <el-radio v-model="petType" label="1">狗</el-radio>
@@ -15,11 +15,9 @@
           <el-radio v-model="petMale" label="1">公</el-radio>
           <el-radio v-model="petMale" label="2">母</el-radio>
         </div>
-        <a @click="changShow">价目表</a>
-        <img v-show='showPriceJpg' src="../assets/img/price.png" alt="" class="priceJpg" @click='showPriceJpg=false'>
         <el-select
           v-model="ServiceName"
-          placeholder="预约服务"
+          placeholder="请选择"
           class="form_input"
         >
           <el-option
@@ -79,13 +77,9 @@ export default {
       // this.canOrderTime=res.data
       console.log(this.ServiceName);
     },
-    changShow() {
-        this.showPriceJpg=!this.showPriceJpg
-    }
   },
   data() {
     return {
-      showPriceJpg:false,
       petType: "",
       petMale: "",
       // 提交表单预约的医生
@@ -152,13 +146,6 @@ export default {
 .shortcut {
   position: absolute;
   z-index: 2;
-}
-.priceJpg {
-    position: absolute;
-    z-index: 2;
-    // top: 30px;
-    width: 150%;
-    height: 100%;
 }
 .videos {
   background-color: rgba(1, 36, 63, 0.2);

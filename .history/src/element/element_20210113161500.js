@@ -13,7 +13,7 @@ import {
 } from 'element-ui'
 
 Vue.prototype.$message = Message
-Vue.component(Message.name, Message)
+Vue.use(Message)
 Vue.use(Calendar)
 Vue.use(DatePicker)
 Vue.use(Select)

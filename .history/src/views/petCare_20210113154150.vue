@@ -16,10 +16,10 @@
           <el-radio v-model="petMale" label="2">母</el-radio>
         </div>
         <a @click="changShow">价目表</a>
-        <img v-show='showPriceJpg' src="../assets/img/price.png" alt="" class="priceJpg" @click='showPriceJpg=false'>
+        <img v-show='showPriceJpg' src="../assets/img/price.png" alt="" class="priceJpg" @click={showPriceJpg=false'}>
         <el-select
           v-model="ServiceName"
-          placeholder="预约服务"
+          placeholder="请选择"
           class="form_input"
         >
           <el-option
@@ -156,9 +156,7 @@ export default {
 .priceJpg {
     position: absolute;
     z-index: 2;
-    // top: 30px;
-    width: 150%;
-    height: 100%;
+    top: 60px;
 }
 .videos {
   background-color: rgba(1, 36, 63, 0.2);

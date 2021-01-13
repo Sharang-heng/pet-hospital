@@ -19,7 +19,7 @@
         <img v-show='showPriceJpg' src="../assets/img/price.png" alt="" class="priceJpg" @click='showPriceJpg=false'>
         <el-select
           v-model="ServiceName"
-          placeholder="预约服务"
+          placeholder="请选择"
           class="form_input"
         >
           <el-option

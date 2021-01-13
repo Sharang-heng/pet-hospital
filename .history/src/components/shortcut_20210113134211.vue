@@ -26,7 +26,7 @@
             <a href="#" @click="toPetCare">护理/美容</a>
           </li>
           <li>
-            <a href="#" @click="toWalkDog">遛狗</a>
+            <a href="#">遛狗</a>
           </li>
           <li>
             <a @click="toTransport">宠物托运</a>
@@ -43,9 +43,6 @@
 <script>
 export default {
   methods:{
-     toWalkDog(){
-      this.$router.push('/walkTheDog')
-    },
     toHome(){
       this.$router.push('/home');
     },

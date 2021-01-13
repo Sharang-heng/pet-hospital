@@ -15,16 +15,10 @@ import petTransport from '../views/petTransport'
 import petCare from '../views/petCare'
 import orderDoctor from '../views/orderDoctor'
 import cloneOrder from '../views/cloneOrder'
-import walkTheDog from '@/views/walkTheDog'
-import AdminLogin from '@/views/AdminLogin'
+
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/adminLogin',
-    name: '管理员登录',
-    component: AdminLogin,
-  },
   {
     path: '/',
     redirect: '/home'
@@ -77,12 +71,7 @@ const routes = [
   {
     path:'/petFuneral',
     component: petFuneral
-  },
-  {
-    path:'/walkTheDog',
-    component: walkTheDog
   }
-
 
 ]
 
