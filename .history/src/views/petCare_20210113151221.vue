@@ -81,7 +81,7 @@ export default {
   data() {
     return {
       petType: "",
-      petMale: "",
+      petMale:'',
       // 提交表单预约的医生
       ServiceName: "",
       // 提交表单预约的时间

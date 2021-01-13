@@ -163,7 +163,7 @@ export default {
         padding: 0 5%;
         margin: 40px 0 0 0;
         .input_area {
-          width: 100%;
+          width: 80%;
           border: none;
           border-bottom: 1px solid #ababab;
           font-size: 16px;

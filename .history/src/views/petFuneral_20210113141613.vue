@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="bottom_container">
-      <div class="order_title">
+      <div class="middle">
         <p>在线预约</p>
       </div>
       <div class="orderForm">
@@ -53,7 +53,7 @@
           />
         </div>
         <div class="button_container">
-          <el-button type="primary" round class="button" @click="orderFunal">主要按钮</el-button>
+          <el-button type="primary" round class="button">主要按钮</el-button>
         </div>
       </div>
     </div>
@@ -74,15 +74,6 @@ export default {
       textarea: "",
     };
   },
-  methods:{
-    async orderFunal(){
-       //  const { data: res } = await this.$http.post(
-      //   "/api/register/shop",
-      //   JSON.stringify(this.timeValue)
-      // );
-      // this.canOrderTime=res.data
-    }
-  }
 };
 </script>
 
@@ -123,23 +114,14 @@ export default {
 }
 .container {
   width: 100%;
-  .middle {
-      display: flex;
-      justify-content: center;
-      font-size: 28px;
-      color: #353535;
-      margin: 80px 0;
-      padding: 80px 0 0 0;
-    }
   .bottom_container {
-    background-color: #fefef3;
-    .order_title {
+    background-color: #fff;
+    .middle {
       display: flex;
       justify-content: center;
       font-size: 28px;
       color: #353535;
       margin: 80px 0;
-      padding: 80px 0 0 0;
     }
     .orderForm {
       width: 100%;
@@ -156,27 +138,25 @@ export default {
           color: #ababab;
           padding: 0 0 5px 0;
           outline: none;
-          background-color: #fefef3;
         }
       }
       .area_container {
         padding: 0 5%;
         margin: 40px 0 0 0;
         .input_area {
-          width: 100%;
+          width: 80%;
           border: none;
           border-bottom: 1px solid #ababab;
           font-size: 16px;
           color: #ababab;
           padding: 0 0 5px 0;
           outline: none;
-          background-color: #fefef3;
         }
       }
       .button_container {
         display: flex;
         justify-content: center;
-        padding: 40px 0 40px 0;
+        margin: 40px 0 40px 0;
         .button {
           background-color: #f3be04;
           border: #f3be04;

@@ -6,15 +6,12 @@
     </div>
     <div class>
       <el-form label-width="100px" class="main">
-        <div>
-          <el-radio v-model="petType" label="1">狗</el-radio>
-          <el-radio v-model="petType" label="2">猫</el-radio>
-          <el-radio v-model="petType" label="3">其它</el-radio>
-        </div>
-        <div>
-          <el-radio v-model="petMale" label="1">公</el-radio>
-          <el-radio v-model="petMale" label="2">母</el-radio>
-        </div>
+          <div>
+              <el-radio v-model="petType" label="1">狗</el-radio>
+        <el-radio v-model="petType" label="2">猫</el-radio>
+        <el-radio v-model="petType" label="3">其它</el-radio>
+          </div>
+        
         <el-select
           v-model="ServiceName"
           placeholder="请选择"
@@ -68,7 +65,19 @@ export default {
   components: {
     shortcut: shortcut,
   },
+  created() {
+    this.ServiceName = sessionStorage.getItem("ServiceName");
+  },
+  mounted() {},
   methods: {
+    async getTimeList() {
+      //  const { data: res } = await this.$http.post(
+      //   "/api/register/shop",
+      //   JSON.stringify(this.timeValue)
+      // );
+      // this.canOrderTime=res.data
+      console.log(this.timeValue);
+    },
     async submitOrder() {
       //  const { data: res } = await this.$http.post(
       //   "/api/register/shop",
@@ -80,13 +89,13 @@ export default {
   },
   data() {
     return {
-      petType: "",
-      petMale: "",
+      value: "",
       // 提交表单预约的医生
       ServiceName: "",
       // 提交表单预约的时间
       orderTime: "",
       timeValue: "",
+      petType: "",
       pickerOptions: {
         // 限制预约时间
         disabledDate(time) {
@@ -96,16 +105,16 @@ export default {
       // 下拉框选择医生
       ServiceOptions: [
         {
-          value: "洗澡",
-          label: "洗澡",
+          value: "宠物克隆",
+          label: "宠物克隆",
         },
         {
-          value: "剃毛",
-          label: "剃毛",
+          value: "细胞保存",
+          label: "细胞保存",
         },
         {
-          value: "美容",
-          label: "美容",
+          value: "宠物组织保存",
+          label: "宠物组织保存",
         },
       ],
       // 下拉框获取可以预约的时间

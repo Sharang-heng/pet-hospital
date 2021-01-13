@@ -11,10 +11,7 @@
           <el-radio v-model="petType" label="2">猫</el-radio>
           <el-radio v-model="petType" label="3">其它</el-radio>
         </div>
-        <div>
-          <el-radio v-model="petMale" label="1">公</el-radio>
-          <el-radio v-model="petMale" label="2">母</el-radio>
-        </div>
+
         <el-select
           v-model="ServiceName"
           placeholder="请选择"
@@ -81,7 +78,6 @@ export default {
   data() {
     return {
       petType: "",
-      petMale: "",
       // 提交表单预约的医生
       ServiceName: "",
       // 提交表单预约的时间
@@ -96,16 +92,16 @@ export default {
       // 下拉框选择医生
       ServiceOptions: [
         {
-          value: "洗澡",
-          label: "洗澡",
+          value: "宠物克隆",
+          label: "宠物克隆",
         },
         {
-          value: "剃毛",
-          label: "剃毛",
+          value: "细胞保存",
+          label: "细胞保存",
         },
         {
-          value: "美容",
-          label: "美容",
+          value: "宠物组织保存",
+          label: "宠物组织保存",
         },
       ],
       // 下拉框获取可以预约的时间

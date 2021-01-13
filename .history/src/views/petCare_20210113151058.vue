@@ -12,8 +12,9 @@
           <el-radio v-model="petType" label="3">其它</el-radio>
         </div>
         <div>
-          <el-radio v-model="petMale" label="1">公</el-radio>
-          <el-radio v-model="petMale" label="2">母</el-radio>
+          <el-radio v-model="petType" label="1">狗</el-radio>
+          <el-radio v-model="petType" label="2">猫</el-radio>
+          <el-radio v-model="petType" label="3">其它</el-radio>
         </div>
         <el-select
           v-model="ServiceName"
@@ -81,7 +82,6 @@ export default {
   data() {
     return {
       petType: "",
-      petMale: "",
       // 提交表单预约的医生
       ServiceName: "",
       // 提交表单预约的时间

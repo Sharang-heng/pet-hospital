@@ -53,7 +53,7 @@
           />
         </div>
         <div class="button_container">
-          <el-button type="primary" round class="button" @click="orderFunal">主要按钮</el-button>
+          <el-button type="primary" round class="button">主要按钮</el-button>
         </div>
       </div>
     </div>
@@ -74,15 +74,6 @@ export default {
       textarea: "",
     };
   },
-  methods:{
-    async orderFunal(){
-       //  const { data: res } = await this.$http.post(
-      //   "/api/register/shop",
-      //   JSON.stringify(this.timeValue)
-      // );
-      // this.canOrderTime=res.data
-    }
-  }
 };
 </script>
 
@@ -105,6 +96,7 @@ export default {
     padding: 0 15px;
     height: 360px;
     overflow: hidden;
+     background-color: #fefef3;
   }
   .big_box:hover img {
     transform: scale(1.2);
@@ -123,6 +115,7 @@ export default {
 }
 .container {
   width: 100%;
+   background-color: #fefef3;
   .middle {
       display: flex;
       justify-content: center;
@@ -163,7 +156,7 @@ export default {
         padding: 0 5%;
         margin: 40px 0 0 0;
         .input_area {
-          width: 100%;
+          width: 80%;
           border: none;
           border-bottom: 1px solid #ababab;
           font-size: 16px;
