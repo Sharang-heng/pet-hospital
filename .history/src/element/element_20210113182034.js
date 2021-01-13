@@ -10,8 +10,7 @@ import {
     Form,
     FormItem,
     Radio,
-    Steps,
-    Step
+    Steps
 } from 'element-ui'
 
 Vue.prototype.$message = Message
@@ -26,4 +25,3 @@ Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Radio)
 Vue.use(Steps)
-Vue.use(Step)

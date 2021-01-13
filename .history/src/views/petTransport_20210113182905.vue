@@ -81,12 +81,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-step__head .is-finish {
-    color: #f6ab00 !important;
-    border-color: #f6ab00 !important;
-}
-.el-step__title .is-finish {
-color: #f6ab00 !important;
+.el-step__head.is-finish {
+    color: #f6ab00;
+    border-color: #f6ab00;
 }
 .topImg {
   img {

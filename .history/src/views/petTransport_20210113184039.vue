@@ -88,6 +88,9 @@ export default {
 .el-step__title .is-finish {
 color: #f6ab00 !important;
 }
+.el-step__title.is-finish{
+  color: #000000
+}
 .topImg {
   img {
     width: 100%;

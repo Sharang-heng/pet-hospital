@@ -10,7 +10,6 @@ import {
     Form,
     FormItem,
     Radio,
-    Steps,
     Step
 } from 'element-ui'
 
@@ -25,5 +24,4 @@ Vue.use(Input)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Radio)
-Vue.use(Steps)
 Vue.use(Step)

@@ -19,35 +19,9 @@
         </ul>
         <div class="nav_content">
           <div v-show="showDetail == 0">
-            <div>
-              <div class="title_text">详细查询</div>
-              <input
-                type="text"
-                class="input_class"
-                placeholder="请输入手机号"
-              />
-              <el-button type="primary" class="send_button">主要按钮</el-button>
-            </div>
-            <div>
-              <el-steps :active="2" align-center>
-                <el-step
-                  title="步骤1"
-                  description="这是一段很长很长很长的描述性文字"
-                ></el-step>
-                <el-step
-                  title="步骤2"
-                  description="这是一段很长很长很长的描述性文字"
-                ></el-step>
-                <el-step
-                  title="步骤3"
-                  description="这是一段很长很长很长的描述性文字"
-                ></el-step>
-                <el-step
-                  title="步骤4"
-                  description="这是一段很长很长很长的描述性文字"
-                ></el-step>
-              </el-steps>
-            </div>
+            <div class="title_text">详细查询</div>
+            <input type="text" class="input_class" placeholder="请输入手机号" />
+            <el-button type="primary" class="send_button">主要按钮</el-button>
           </div>
         </div>
       </div>
@@ -81,13 +55,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-step__head .is-finish {
-    color: #f6ab00 !important;
-    border-color: #f6ab00 !important;
-}
-.el-step__title .is-finish {
-color: #f6ab00 !important;
-}
 .topImg {
   img {
     width: 100%;
@@ -128,24 +95,22 @@ color: #f6ab00 !important;
   }
   .nav_content {
     padding: 20px 10%;
-    .title_text {
+    .title_text{
       color: #666;
       font-size: 18px;
       margin: 0 0 10px 0;
     }
-
-    .input_class {
+    
+    .input_class{
       width: 400px;
       height: 38px;
       margin: 0 20px 0 0;
-      border: 1px solid #f0f0f0;
-      outline: none;
-      padding: 0 0 0 5px;
+      border: #f0f0f0;
     }
 
     .send_button {
-      background-color: #f6ab00;
-      border: #f6ab00;
+      background-color: #F6AB00;
+      border: #F6AB00;
       border-radius: 0;
       width: 200px;
     }
