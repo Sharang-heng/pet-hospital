@@ -26,21 +26,25 @@
                 class="input_class"
                 placeholder="请输入手机号"
               />
-              <el-button type="primary" class="send_button" @click="check">主要按钮</el-button>
+              <el-button type="primary" class="send_button">主要按钮</el-button>
             </div>
-            <div  class="stepOne" v-show="showStep">
-              <el-steps :active=active align-center>
+            <div>
+              <el-steps :active="2" align-center>
                 <el-step
-                  title="您没有在运输的宠物或您的爱宠还在准备运输中"
-                  description="不要着急哦！"
+                  title="步骤1"
+                  description="这是一段很长很长很长的描述性文字"
                 ></el-step>
                 <el-step
-                  title="您的爱宠正在被运往目的地"
-                  description="很快就送达啦~不要着急哦"
+                  title="步骤2"
+                  description="这是一段很长很长很长的描述性文字"
                 ></el-step>
                 <el-step
-                  title="您的爱宠已经到达目的地啦"
-                  description="快去接它吧~"
+                  title="步骤3"
+                  description="这是一段很长很长很长的描述性文字"
+                ></el-step>
+                <el-step
+                  title="步骤4"
+                  description="这是一段很长很长很长的描述性文字"
                 ></el-step>
               </el-steps>
             </div>
@@ -65,18 +69,13 @@ export default {
         { topTest: "宠物国际托运", bottomTest: "PET  RELOCATION" },
         { topTest: "宠物运输保险", bottomTest: "PET  INSURANCE" },
       ],
-      showStep:false,
       showDetail: 0,
-      active:1
     };
   },
   methods: {
     switchCss(index) {
       this.showDetail = index;
     },
-    check(){
-      this.showStep=true
-    }
   },
 };
 </script>
@@ -86,6 +85,13 @@ export default {
     color: #f6ab00 ;
     border-color: #f6ab00 ;
 }
+.el-steps.el-steps--horizontal /deep/ .el-step.is-horizontal.is-center /deep/ .el-step__head.is-finish {
+    color: #f6ab00!important;
+    border-color: #f6ab00 !important;
+  }
+// .el-step__title .is-finish {
+// color: #f6ab00 !important;
+// }
 .topImg {
   img {
     width: 100%;
@@ -148,24 +154,5 @@ export default {
       width: 200px;
     }
   }
-}
-.stepOne{
-  margin: 80px 0 0 0;
- .el-step.is-horizontal.stepActive{
-   .el-step__head.is-finish{
-     .el-step__line{
-       // 当前步骤数横线样式设置
-       .el-step__line-inner{
-         width: 50% !important;
-         border-width: 1px !important;
-       }
-     }
-     // 当前步骤数圆圈样式设置
-     .el-step__icon.is-text{
-       background: #409eff;
-       color:#fff;
-     }
-   }
- }
 }
 </style>

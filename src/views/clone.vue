@@ -2,7 +2,7 @@
   <div>
     <shortcut class="chortcut"></shortcut>
     <div class="topImg">
-      <img src="../assets/img/clone.jpg" alt />
+      <img src="../assets/img/clone_home.jpg" alt />
     </div>
     <div class="box">
       <div>
@@ -122,5 +122,9 @@ export default {
 .currentNav {
   background-color: #37b3c2 !important;
   color: #fff !important;
+}
+.details {
+  // width: 100%;
+  position: relative;
 }
 </style>

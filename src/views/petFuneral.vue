@@ -90,7 +90,7 @@ export default {
 .logo {
   background: url("../assets/img/funeralLogo.jpg");
   background-repeat: no-repeat; //不重复
-  background-size: 100% 100%;
+  background-size: 100% 150%;
   height: 670px;
 }
 
