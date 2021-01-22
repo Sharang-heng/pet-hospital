@@ -26,10 +26,12 @@
                 class="input_class"
                 placeholder="请输入手机号"
               />
-              <el-button type="primary" class="send_button" @click="check">主要按钮</el-button>
+              <el-button type="primary" class="send_button" @click="check"
+                >主要按钮</el-button
+              >
             </div>
-            <div  class="stepOne" v-show="showStep">
-              <el-steps :active=active align-center>
+            <div class="stepOne" v-show="showStep">
+              <el-steps :active="active" align-center>
                 <el-step
                   title="您没有在运输的宠物或您的爱宠还在准备运输中"
                   description="不要着急哦！"
@@ -43,6 +45,56 @@
                   description="快去接它吧~"
                 ></el-step>
               </el-steps>
+            </div>
+          </div>
+          <div v-show="showDetail == 1">
+            <div class="bottom_container">
+              <div class="order_title">
+                <p>在线预约</p>
+              </div>
+              <div class="orderForm">
+                <div class="detail_msg">
+                  <li>
+                    <input
+                      v-model="name"
+                      placeholder="您的姓名"
+                      class="input_text"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      v-model="mail"
+                      placeholder="电子邮箱"
+                      class="input_text"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      v-model="phone"
+                      placeholder="联系方式"
+                      class="input_text"
+                    />
+                  </li>
+                </div>
+                <div class="area_container">
+                  <input
+                    type="textarea"
+                    :rows="2"
+                    placeholder="留言"
+                    v-model="textarea"
+                    class="input_area"
+                  />
+                </div>
+                <div class="button_container">
+                  <el-button
+                    type="primary"
+                    round
+                    class="button"
+                    @click="orderFunal"
+                    >主要按钮</el-button
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -65,26 +117,26 @@ export default {
         { topTest: "宠物国际托运", bottomTest: "PET  RELOCATION" },
         { topTest: "宠物运输保险", bottomTest: "PET  INSURANCE" },
       ],
-      showStep:false,
+      showStep: false,
       showDetail: 0,
-      active:1
+      active: 1,
     };
   },
   methods: {
     switchCss(index) {
       this.showDetail = index;
     },
-    check(){
-      this.showStep=true
-    }
+    check() {
+      this.showStep = true;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .is-finish {
-    color: #f6ab00 ;
-    border-color: #f6ab00 ;
+  color: #f6ab00;
+  border-color: #f6ab00;
 }
 .topImg {
   img {
@@ -149,23 +201,78 @@ export default {
     }
   }
 }
-.stepOne{
+.stepOne {
   margin: 80px 0 0 0;
- .el-step.is-horizontal.stepActive{
-   .el-step__head.is-finish{
-     .el-step__line{
-       // 当前步骤数横线样式设置
-       .el-step__line-inner{
-         width: 50% !important;
-         border-width: 1px !important;
-       }
-     }
-     // 当前步骤数圆圈样式设置
-     .el-step__icon.is-text{
-       background: #409eff;
-       color:#fff;
-     }
-   }
- }
+  .el-step.is-horizontal.stepActive {
+    .el-step__head.is-finish {
+      .el-step__line {
+        // 当前步骤数横线样式设置
+        .el-step__line-inner {
+          width: 50% !important;
+          border-width: 1px !important;
+        }
+      }
+      // 当前步骤数圆圈样式设置
+      .el-step__icon.is-text {
+        background: #409eff;
+        color: #fff;
+      }
+    }
+  }
 }
+.bottom_container {
+    background-color: #fefef3;
+    .order_title {
+      display: flex;
+      justify-content: center;
+      font-size: 28px;
+      color: #353535;
+      margin: 80px 0;
+      padding: 80px 0 0 0;
+    }
+    .orderForm {
+      width: 100%;
+      .detail_msg {
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .input_text {
+          width: 300px;
+          border: none;
+          border-bottom: 1px solid #ababab;
+          font-size: 16px;
+          color: #ababab;
+          padding: 0 0 5px 0;
+          outline: none;
+          background-color: #fefef3;
+        }
+      }
+      .area_container {
+        // background-color: #fefef3;
+        padding: 0 5%;
+        margin: 40px 0 0 0;
+        .input_area {
+          width: 100%;
+          border: none;
+          border-bottom: 1px solid #ababab;
+          font-size: 16px;
+          color: #ababab;
+          padding: 0 0 5px 0;
+          outline: none;
+          background-color: #fefef3;
+        }
+      }
+      .button_container {
+        display: flex;
+        justify-content: center;
+        padding: 40px 0 40px 0;
+        .button {
+          background-color: #f3be04;
+          border: #f3be04;
+          width: 200px;
+        }
+      }
+    }
+  }
 </style>
