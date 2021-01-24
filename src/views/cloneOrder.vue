@@ -65,6 +65,30 @@ export default {
       //   JSON.stringify(this.timeValue)
       // );
       // this.canOrderTime=res.data
+      var ll=[{
+        
+        name:'12',
+        arr:[
+          {sadad:'12122'}
+        ]
+      },{
+        name:'112',
+        arr:[
+          {sadad:'12122'}
+        ]
+      },
+      {
+        name:'1232',
+        arr:[
+          {sadad:'12122'}
+        ]
+      }]
+      var res = ll.map(item =>{
+        item.id = item.name;
+        return item 
+      })
+
+      console.log(res,'resres')
       console.log(this.ServiceName)
     }
   },
