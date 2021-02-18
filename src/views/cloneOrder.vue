@@ -1,40 +1,78 @@
 <template>
-  <div>
+  <div class="container">
     <shortcut class="shortcut"></shortcut>
     <div class="videos">
-      <video src="../assets/video/homepage.mp4" loop muted autoplay></video>
+      <img src="../assets/img/order_bg.jpg" />
     </div>
-    <div class>
-      <el-form  label-width="100px" class="main">
-        <el-select v-model="ServiceName" placeholder="请选择" class="form_input">
-          <el-option
-            v-for="item in ServiceOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-        <el-date-picker
-          v-model="timeValue"
-          type="date"
-          value-format="yyyy-MM-dd"
-          @change="getTimeList"
-          :picker-options="pickerOptions"
-          placeholder="选择预约日期"
-          :style="{width:'300px','margin-bottom':'20px'}"
-        ></el-date-picker>
-        <el-select v-model="orderTime" placeholder="请选择" class="form_input">
-          <el-option
-            v-for="item in timeOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-        <!-- <el-input v-model="number" placeholder="请输入" class="form_input" prop="number"></el-input> -->
-        <el-input v-model="name" placeholder="请输入您的尊姓大名" class="form_input"></el-input>
-        <el-input v-model="number" placeholder="请输入您的联系方式" class="form_input" prop="number"></el-input>
-        <el-button type="primary" @click="submitOrder">提交预约</el-button>
+    <div class="box">
+      <el-form label-width="100px" class="main">
+        <div class="order_box">
+          <div class="ecach_order">
+            <span class="label">请选择您要预约的服务</span>
+            <el-select
+              v-model="doctorName"
+              placeholder="请选择"
+              class="form_input"
+            >
+              <el-option
+                v-for="item in ServiceOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="ecach_order">
+            <span class="label">请选择您要预约的时间</span>
+            <el-date-picker
+              v-model="timeValue"
+              type="date"
+              value-format="yyyy-MM-dd"
+              @change="getTimeList"
+              :picker-options="pickerOptions"
+              placeholder="选择预约日期"
+              :style="{ width: '300px', 'margin-bottom': '20px' }"
+            ></el-date-picker>
+          </div>
+          <div class="ecach_order">
+            <span class="label">请选择您要预约的时间</span>
+            <el-select
+              v-model="orderTime"
+              placeholder="请选择"
+              class="form_input"
+            >
+              <el-option
+                v-for="item in timeOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="ecach_order">
+            <span class="label">姓名</span>
+            <el-input
+              v-model="name"
+              placeholder="请您的输入尊姓大名"
+              class="form_input"
+            ></el-input>
+          </div>
+          <div class="ecach_order">
+            <span class="label">联系方式</span>
+            <el-input
+              v-model="number"
+              placeholder="请输入您的联系方式"
+              class="form_input"
+              prop="number"
+            ></el-input>
+          </div>
+          <div class="order_button">
+            <el-button type="primary" @click="submitOrder">提交预约</el-button>
+          </div>
+        </div>
+        <div class="order_dog">
+          <img src="../assets/img/order_dog.jpg" alt="" />
+        </div>
       </el-form>
     </div>
   </div>
@@ -44,10 +82,10 @@
 import shortcut from "../components/shortcut";
 export default {
   components: {
-    shortcut: shortcut
+    shortcut: shortcut,
   },
   created() {
-    this.ServiceName = sessionStorage.getItem("ServiceName");
+    this.doctorName = sessionStorage.getItem("ServiceName");
   },
   mounted() {},
   methods: {
@@ -65,32 +103,8 @@ export default {
       //   JSON.stringify(this.timeValue)
       // );
       // this.canOrderTime=res.data
-      var ll=[{
-        
-        name:'12',
-        arr:[
-          {sadad:'12122'}
-        ]
-      },{
-        name:'112',
-        arr:[
-          {sadad:'12122'}
-        ]
-      },
-      {
-        name:'1232',
-        arr:[
-          {sadad:'12122'}
-        ]
-      }]
-      var res = ll.map(item =>{
-        item.id = item.name;
-        return item 
-      })
-
-      console.log(res,'resres')
-      console.log(this.ServiceName)
-    }
+      console.log(this.doctorName);
+    },
   },
   data() {
     return {
@@ -148,11 +162,35 @@ export default {
       name: "",
       number: ""
     };
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.order_dog{
+  img{
+    width: 400px;
+    // opacity: 1;
+    margin:0 0 0 20% ;
+  }
+}
+
+.ecach_order {
+  margin: 0 0 0 10%;
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.label {
+  color: #fff;
+  margin: 0 10px 0 0;
+}
 .form_input {
   width: 300px;
   margin: 0 0 20px 0;
@@ -161,32 +199,42 @@ export default {
   position: absolute;
   z-index: 2;
 }
-.videos {
-  background-color: rgba(1, 36, 63, 0.2);
-  // 为什么设置成absolute就能100%
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  video {
+.container {
+  .videos {
+    background-color: rgba(1, 36, 63, 0.2);
+    // 为什么设置成absolute就能100%
+    // position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
+    height: 100vh;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      // filter: blur(15px);
+    }
   }
+}
+.order_button {
+  width: 500px;
+  display: flex;
+  margin:0 0 0 20% ;
+  justify-content: center;
 }
 .main {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  height: 75%;
-  background-color: #fff;
-  border-radius: 10px;
-  opacity: 0.9;
+  width: 60%;
+  height: 55%;
+  background-color: #000;
+  // border-radius: 10px;
+  opacity: 0.7;
   display: flex;
-  justify-content: center;
+  // justify-content: space-around;
+  //  flex-wrap:  wrap
   align-items: center;
-  flex-direction: column;
+  // flex-direction: column;
 }
 </style>
