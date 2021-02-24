@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import shortcut from "../components/shortcut";
+// import shortcut from "../components/shortcut";
 import homeShort from "../components/home_short";
 export default {
   data() {

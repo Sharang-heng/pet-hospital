@@ -44,7 +44,7 @@ export default {
         { test: "宠物组织保存" ,path: "/keepTissue" },
         { test: "克隆技术" ,path:"/cloneTechnology"},
         { test: "重要提示" ,path:"/importantTip"},
-        { test: "常见问题" }
+        { test: "我的预约",path:"/myorder" }
       ],
       selected: 0
     };

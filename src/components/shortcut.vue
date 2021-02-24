@@ -25,9 +25,9 @@
           <li>
             <a href="#" @click="toPetCare">护理/美容</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#" @click="toWalkDog">遛狗</a>
-          </li>
+          </li> -->
           <li>
             <a @click="toTransport">宠物托运</a>
           </li>

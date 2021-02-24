@@ -9,11 +9,7 @@
         <div class="order_box">
           <div class="ecach_order">
             <span class="label">请选择您要预约的服务</span>
-            <el-select
-              v-model="doctorName"
-              placeholder="请选择"
-              class="form_input"
-            >
+            <el-select v-model="cloneSericeName" placeholder="请选择" class="form_input">
               <el-option
                 v-for="item in ServiceOptions"
                 :key="item.value"
@@ -36,11 +32,7 @@
           </div>
           <div class="ecach_order">
             <span class="label">请选择您要预约的时间</span>
-            <el-select
-              v-model="orderTime"
-              placeholder="请选择"
-              class="form_input"
-            >
+            <el-select v-model="orderTime" placeholder="请选择" class="form_input">
               <el-option
                 v-for="item in timeOptions"
                 :key="item.value"
@@ -51,27 +43,18 @@
           </div>
           <div class="ecach_order">
             <span class="label">姓名</span>
-            <el-input
-              v-model="name"
-              placeholder="请您的输入尊姓大名"
-              class="form_input"
-            ></el-input>
+            <el-input v-model="name" placeholder="请您的输入尊姓大名" class="form_input"></el-input>
           </div>
           <div class="ecach_order">
             <span class="label">联系方式</span>
-            <el-input
-              v-model="number"
-              placeholder="请输入您的联系方式"
-              class="form_input"
-              prop="number"
-            ></el-input>
+            <el-input v-model="number" placeholder="请输入您的联系方式" class="form_input" prop="number"></el-input>
           </div>
           <div class="order_button">
             <el-button type="primary" @click="submitOrder">提交预约</el-button>
           </div>
         </div>
         <div class="order_dog">
-          <img src="../assets/img/order_dog.jpg" alt="" />
+          <img src="../assets/img/order_dog.jpg" alt />
         </div>
       </el-form>
     </div>
@@ -82,39 +65,84 @@
 import shortcut from "../components/shortcut";
 export default {
   components: {
-    shortcut: shortcut,
+    shortcut: shortcut
   },
   created() {
-    this.doctorName = sessionStorage.getItem("ServiceName");
+    this.cloneSericeName = sessionStorage.getItem("ServiceName");
   },
   mounted() {},
   methods: {
     async getTimeList() {
-      //  const { data: res } = await this.$http.post(
-      //   "/api/register/shop",
-      //   JSON.stringify(this.timeValue)
-      // );
+      this.getTimeEnity.serviceName = this.cloneSericeName;
+      this.getTimeEnity.searchTime = this.timeValue;
+      const { data: res } = await this.$http.post(
+        "/cloneorder/getTime",
+        JSON.stringify(this.getTimeEnity)
+      );
+      this.timeOptions = [];
+      for (var i = 0; i < res.data.length; i++) {
+        var obj = {
+          label: "",
+          value: ""
+        };
+        obj.value = res.data[i];
+        obj.label = res.data[i];
+        this.timeOptions.push(obj);
+      }
       // this.canOrderTime=res.data
-      console.log(this.timeValue);
+      console.log(res);
     },
     async submitOrder() {
-      //  const { data: res } = await this.$http.post(
-      //   "/api/register/shop",
-      //   JSON.stringify(this.timeValue)
-      // );
-      // this.canOrderTime=res.data
-      console.log(this.doctorName);
-    },
+      this.orderEnity.serviceName = this.cloneSericeName;
+      this.orderEnity.orderDate = this.timeValue;
+      this.orderEnity.orderTime = this.orderTime;
+      this.orderEnity.customerName = this.name;
+      this.orderEnity.phoneNume = this.number;
+      if (!this.orderEnity.serviceName) {
+        return this.$message.error("请选择项目类型");
+      } else if (!this.orderEnity.orderDate || !this.orderEnity.orderTime) {
+        return this.$message.error("请选择预约时间");
+      } else if (!this.orderEnity.customerName) {
+        return this.$message.error("请输入您的姓名");
+      } else if (!this.orderEnity.phoneNume) {
+        return this.$message.error("请输入您的联系方式");
+      }
+      if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.number)) {
+        return this.$message.error("手机号有误，请输入正确格式的手机号！");
+      }
+      const { data: res } = await this.$http.post(
+        "/cloneorder/order",
+        JSON.stringify(this.orderEnity)
+      );
+      if (res.code == 200) {
+        this.$message.success("预约成功！");
+        this.$router.push("/clonedog");
+      } else {
+        return this.$message.error("预约失败！");
+      }
+      console.log(res);
+    }
   },
   data() {
     return {
+      orderEnity: {
+        serviceName: "",
+        orderDate: "",
+        orderTime: "",
+        customerName: "",
+        phoneNume: ""
+      },
       value: "",
       // 提交表单预约的医生
-      ServiceName: "",
+      cloneSericeName: "",
       // 提交表单预约的时间
       orderTime: "",
       timeValue: "",
-      petType:'',
+      petType: "",
+      getTimeEnity: {
+        serviceName: "",
+        searchTime: ""
+      },
       pickerOptions: {
         // 限制预约时间
         disabledDate(time) {
@@ -127,51 +155,30 @@ export default {
           value: "宠物克隆",
           label: "宠物克隆"
         },
-         {
+        {
           value: "细胞保存",
           label: "细胞保存"
         },
-          {
+        {
           value: "宠物组织保存",
           label: "宠物组织保存"
-        },
-      ],
-      // 下拉框获取可以预约的时间
-      timeOptions: [
-        {
-          value: "8:30",
-          label: "8:30"
-        },
-        {
-          value: "9:30",
-          label: "9:30"
-        },
-        {
-          value: "11:30",
-          label: "11:30"
-        },
-        {
-          value: "4:30",
-          label: "4:30"
-        },
-        {
-          value: "5:30",
-          label: "5:30"
         }
       ],
+      // 下拉框获取可以预约的时间
+      timeOptions: [],
       name: "",
       number: ""
     };
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.order_dog{
-  img{
+.order_dog {
+  img {
     width: 400px;
     // opacity: 1;
-    margin:0 0 0 20% ;
+    margin: 0 0 0 20%;
   }
 }
 
@@ -218,7 +225,7 @@ export default {
 .order_button {
   width: 500px;
   display: flex;
-  margin:0 0 0 20% ;
+  margin: 0 0 0 20%;
   justify-content: center;
 }
 .main {
@@ -226,8 +233,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 55%;
+  width: 75%;
+  height: 70%;
   background-color: #000;
   // border-radius: 10px;
   opacity: 0.7;

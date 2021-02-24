@@ -8,6 +8,7 @@ import Clone from '../views/clone'
 import KeepSell from '../views/children/keepSell'
 import cloneDog from '../views/children/cloneDog.vue'
 import keepTissue from '../views/children/keepTissue'
+import myorder from '../views/children/myorder'
 import cloneTechnology from '../views/children/cloneTechnology'
 import importantTip from '../views/children/importantTip'
 import petFuneral from '../views/petFuneral'
@@ -70,8 +71,8 @@ const routes = [
         {path: '/keepsell', component: KeepSell},
         {path: '/keepTissue', component: keepTissue},
         {path: '/cloneTechnology', component: cloneTechnology},
-        {path: '/importantTip', component: importantTip}
-        
+        {path: '/importantTip', component: importantTip},
+        {path:'/myorder',component:myorder}
       ]
   },
   {
