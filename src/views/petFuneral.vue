@@ -27,6 +27,14 @@
         </div>
       </div>
     </div>
+    <div class="about">
+      <img src="../assets/img/about.jpg" alt="">
+      <!-- <img src="../assets/img/about2.jpg" alt=""> -->
+    </div>
+    <div class="about2">
+      <!-- <img src="../assets/img/about.jpg" alt=""> -->
+      <img src="../assets/img/about2.jpg" alt="">
+    </div>
     <div class="bottom_container">
       <div class="order_title">
         <p>在线预约</p>
@@ -111,6 +119,23 @@ export default {
   height: 670px;
 }
 
+.about {
+  display: flex;
+  //  flex-direction: row
+  justify-content: center
+
+}
+
+.about2{
+  display: flex;
+  //  flex-direction: row
+  justify-content: center;
+  width: 100%;
+  img{
+    width: 100%;
+  }
+}
+
 .box {
   box-sizing: border-box;
   display: flex;
@@ -155,7 +180,7 @@ export default {
       justify-content: center;
       font-size: 28px;
       color: #353535;
-      margin: 80px 0;
+      margin: 0 0 80px 0;
       padding: 80px 0 0 0;
     }
     .orderForm {

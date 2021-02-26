@@ -16,6 +16,16 @@
             <el-radio v-model="petMale" label="1">公</el-radio>
             <el-radio v-model="petMale" label="2">母</el-radio>
           </div>
+          <div class="pricePicture">
+            <a @click="changShow">价目表</a>
+            <img
+              v-show="showPriceJpg"
+              src="../assets/img/price.png"
+              alt
+              class="priceJpg"
+              @click="showPriceJpg=false"
+            />
+          </div>
           <div class="ecach_order">
             <span class="label">请选择您要预约的服务</span>
             <el-select v-model="ServiceName" placeholder="请选择" class="form_input">
@@ -204,7 +214,17 @@ export default {
     margin: 0 0 0 20%;
   }
 }
-
+.pricePicture {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin:0 0 10px 430px; 
+  img {
+    position: absolute;
+    z-index: 3;
+    margin-top: -100px;
+  }
+}
 .ecach_order {
   margin: 0 0 0 10%;
   width: 500px;
